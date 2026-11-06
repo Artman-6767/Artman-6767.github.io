@@ -1,428 +1,851 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dự Án Khởi Nghiệp: Trà Sữa Xe Đẩy Động Cơ - Vinschool Smart City</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap">
+  <title>XUE - Trà Sữa Xe Đẩy Động Cơ Đồng Giá 25K | Vinschool Smart City</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: 'var(--brand-primary, #ef4444)',
+              accent: 'var(--brand-accent, #f97316)',
+              dark: '#0f172a',
+              light: '#f8fafc'
+            }
+          },
+          fontFamily: {
+            heading: ['Baloo 2', 'cursive', 'sans-serif'],
+            body: ['Be Vietnam Pro', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background-color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; }
-    
-    .slide-page {
-      width: 1280px;
-      height: 720px;
-      margin: 30px auto;
-      overflow: hidden;
-      box-sizing: border-box;
-      position: relative;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      border-radius: 12px;
-      page-break-after: always;
+    :root {
+      --brand-primary: #ef4444; /* XUE Red default */
+      --brand-accent: #f97316;
     }
 
-    @media print {
-      body { background: none; }
-      .slide-page { margin: 0; box-shadow: none; border-radius: 0; page-break-after: always; }
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+    }
+
+    .font-heading { font-family: 'Baloo 2', cursive, sans-serif; }
+    .font-mono-num { font-family: 'Space Grotesk', monospace; }
+
+    /* Custom Glassmorphism */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    }
+
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
     }
   </style>
 </head>
-<body>
+<body class="antialiased text-slate-800">
 
-  <!-- SLIDE 1: TITLE SLIDE (DARK) -->
-  <div class="slide-page bg-slate-900 p-16 flex flex-col justify-center text-white">
-    <div class="flex items-center gap-3 mb-6">
-      <span class="bg-rose-500 text-white text-sm font-bold px-4 py-1.5 rounded-full tracking-wider">DỰ ÁN KHỞI NGHIỆP THỰC CHUYẾN - KHỐI 11</span>
-      <span class="text-slate-400 text-base">VINSCHOOL SMART CITY</span>
-    </div>
-    <h1 class="font-['Space_Grotesk'] text-5xl font-bold leading-tight text-white max-w-4xl mb-5">
-      Kế Hoạch Khởi Nghiệp Xe Đẩy Trà Sữa Động Cơ "Mixue Lưu Động"
-    </h1>
-    <p class="text-xl text-slate-300 max-w-3xl leading-relaxed mb-10">
-      Nghiên cứu thị trường địa bàn Nam Từ Liêm, mô hình tài chính hòa vốn và giải pháp kỹ thuật vận hành linh hoạt tại khu đô thị.
-    </p>
-    <div class="flex gap-8 border-t border-slate-700 pt-6">
-      <div>
-        <p class="text-sm text-slate-400 mb-1">Học sinh thực hiện</p>
-        <p class="text-base font-semibold text-slate-100">Nhóm Khởi Nghiệp Lớp 11</p>
-      </div>
-      <div>
-        <p class="text-sm text-slate-400 mb-1">Định vị mô hình</p>
-        <p class="text-base font-semibold text-sky-400">Đồng Giá 20K - 25K / Full Thạch</p>
-      </div>
-      <div>
-        <p class="text-sm text-slate-400 mb-1">Vốn đầu tư ban đầu</p>
-        <p class="text-base font-semibold text-amber-400">~8.5 triệu - 12 triệu VNĐ</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 2: ANALYSIS OF TEACHER'S TEMPLATE -->
-  <div class="slide-page bg-slate-50 p-12 flex flex-col">
-    <p class="text-sm font-bold text-rose-500 tracking-wider mb-2">BÀI MẪU "TRÀ SỮA ĐU ĐU"</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-8">
-      Phân Tích 4 Điểm Cốt Lõi Bài Mẫu Của Giáo Viên
-    </h2>
-    <div class="grid grid-cols-4 gap-5 flex-grow items-center">
-      <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm h-full flex flex-col justify-center">
-        <div class="w-10 h-10 bg-rose-100 rounded-lg flex items-center justify-center text-rose-500 mb-4">
-          <i class="fa-solid fa-bullseye fa-lg"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">01. Mô Hình Tinh Gọn</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Cắt bỏ 400 triệu tiền mặt bằng nhượng quyền. Bán cốc lớn 700ml giá 25K bằng xe đẩy lưu động vốn 12 triệu.</p>
-      </div>
-      <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm h-full flex flex-col justify-center">
-        <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center text-sky-600 mb-4">
-          <i class="fa-solid fa-box-open fa-lg"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">02. Bao Bì Kỹ Thuật</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Ly PP số 5 ép màng nhiệt chịu nhiệt 165°C. Tiết kiệm 732đ/ly so với ly PET nắp cầu, chống bung tràn 100%.</p>
-      </div>
-      <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm h-full flex flex-col justify-center">
-        <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 mb-4">
-          <i class="fa-solid fa-chart-line fa-lg"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">03. Upsell Bậc Thang</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Giữ mác đồng giá 25K nhưng nâng đơn trung bình (AOV) lên 34K nhờ bán kèm Topping +5K và bánh gói +10K.</p>
-      </div>
-      <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm h-full flex flex-col justify-center">
-        <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-600 mb-4">
-          <i class="fa-solid fa-shield-halved fa-lg"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-900 mb-2">04. Rủi Ro & Giải Ngân</h3>
-        <p class="text-sm text-slate-600 leading-relaxed">Giải ngân 2 mốc (bán thử Booth 2.2 triệu trước). Tính điểm hòa vốn trừ 15% hủy hàng do mưa/ế.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 3: MARKET RESEARCH -->
-  <div class="slide-page bg-white p-12 flex flex-col">
-    <p class="text-sm font-bold text-sky-600 tracking-wider mb-2">NGHIÊN CỨU ĐỊA BÀN VINSCHOOL SMART CITY</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-7">
-      Đặc Thù Thị Trường & 4 Khung Giờ Bán Hàng Vàng
-    </h2>
-    <div class="grid grid-cols-2 gap-9 flex-grow items-center">
-      <div class="space-y-5">
-        <div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1">Chân dung học sinh Vinschool:</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">Tiêu vặt 30K–70K/ngày. Cực kỳ ưa chuộng đồ uống mát lạnh, đậm vị nhưng chú trọng vệ sinh an toàn thực phẩm.</p>
-        </div>
-        <div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1">Thách thức đô thị Smart City:</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">Ban quản lý kiểm soát vỉa hè nghiêm ngặt. Giải pháp: Hợp tác thuê hiên shophouse chân tòa nhà gần trường.</p>
-        </div>
-        <div>
-          <h4 class="text-lg font-bold text-slate-900 mb-1">Lợi thế Xe Đẩy Động Cơ:</h4>
-          <p class="text-sm text-slate-600 leading-relaxed">Cơ động chuyển đổi vị trí giữa cổng trường Vinschool và các phân khu căn hộ S1, S2, Tonkin, Imperia.</p>
-        </div>
-      </div>
-      <div class="bg-slate-50 p-8 rounded-2xl border-l-4 border-sky-600">
-        <h3 class="text-xl font-bold text-slate-900 mb-5">4 Khung Giờ Bán Hàng Vàng</h3>
-        <ul class="space-y-3.5 text-sm text-slate-700">
-          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-600 mt-1"></i><span><b>06h45 – 07h15:</b> Căng thẳng giờ vào lớp (Ưu tiên Trà đóng chai sẵn).</span></li>
-          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-600 mt-1"></i><span><b>11h30 – 12h00:</b> Tan ca sáng (Phụ huynh mua kèm học sinh).</span></li>
-          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-600 mt-1"></i><span><b>16h30 – 17h30:</b> Tan học ca chiều (Khung giờ đỉnh cao doanh thu).</span></li>
-          <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-sky-600 mt-1"></i><span><b>19h00 – 20h00:</b> Học sinh học thêm / Cư dân dạo nội khu.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 4: HARDWARE & MOTOR CART CONCEPT -->
-  <div class="slide-page bg-white p-12 flex flex-col">
-    <h2 class="text-3xl font-bold text-slate-900 mb-6">
-      Mô Hình Kiosk / Xe Đẩy Động Cơ "Mixue Di Động"
-    </h2>
-    <div class="grid grid-cols-2 gap-9 flex-grow items-center">
-      <div class="h-[420px] rounded-2xl overflow-hidden shadow-md">
-        <img src="https://ilrorwxhoqnrln5p-static.micyjz.com/cloud/pqBpqKpqllSRqlqqnkqjjm/food-truck-15-_3959_39594370414210468016589.jpg" alt="Xe đẩy trà sữa lưu động" class="w-full h-full object-cover">
-      </div>
-      <div class="space-y-4">
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
-          <h4 class="text-base font-bold text-rose-500 mb-1"><i class="fa-solid fa-motorcycle mr-2"></i>Xe Máy Điện Độ Thùng / Xe 3 Bánh Điện Mini</h4>
-          <p class="text-sm text-slate-600">Gọn nhẹ, di chuyển linh hoạt trong khu đô thị Smart City không tốn tiền xăng.</p>
-        </div>
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
-          <h4 class="text-base font-bold text-sky-600 mb-1"><i class="fa-solid fa-bolt mr-2"></i>Hệ Thống Điện Pin Ắc Quy / Trạm Sạc</h4>
-          <p class="text-sm text-slate-600">Nguồn điện kích từ ắc quy xe điện hoặc trạm dự phòng EcoFlow cho máy dập nắp (350W) và máy tem.</p>
-        </div>
-        <div class="bg-slate-50 p-5 rounded-xl border border-slate-100">
-          <h4 class="text-base font-bold text-emerald-600 mb-1"><i class="fa-solid fa-palette mr-2"></i>Bộ Nhận Diện Nổi Bật (Red-White Theme)</h4>
-          <p class="text-sm text-slate-600">Tông màu Đỏ - Trắng phong cách Mixue giúp nhận diện từ khoảng cách 25m cổng trường.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 5: MENU MATRIX -->
-  <div class="slide-page bg-slate-50 p-12 flex flex-col">
-    <p class="text-sm font-bold text-rose-500 tracking-wider mb-2">MENU THỜI ĐẠI MỚI</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-6">
-      Menu 6 Món Tinh Gọn — Pha Chế Dưới 30 Giây
-    </h2>
-    <div class="grid grid-cols-3 gap-5 flex-grow content-center">
-      <div class="bg-white p-6 rounded-xl border-t-4 border-rose-500 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Trà Sữa Trân Châu Hoàng Gia</h4>
-        <p class="text-lg font-extrabold text-rose-500 mb-2">25.000đ</p>
-        <p class="text-xs text-slate-500"><b>Signature:</b> Đầm vị trà đen, trân châu dẻo béo ngậy.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl border-t-4 border-sky-600 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Trà Sữa Oolong Kem Cheese</h4>
-        <p class="text-lg font-extrabold text-sky-600 mb-2">25.000đ</p>
-        <p class="text-xs text-slate-500"><b>Bán chạy:</b> Vị trà đậm thanh nhẹ kết hợp màng phô mai.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl border-t-4 border-emerald-600 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Trà Đào Cam Sả / Chanh Giã Tay</h4>
-        <p class="text-lg font-extrabold text-emerald-600 mb-2">20.000đ</p>
-        <p class="text-xs text-slate-500"><b>Biên lãi cao:</b> Giải nhiệt ngày nắng, vốn nguyên liệu siêu thấp.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl border-t-4 border-amber-600 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Trà Xoài Dâu Tây Nhiệt Đới</h4>
-        <p class="text-lg font-extrabold text-amber-600 mb-2">20.000đ</p>
-        <p class="text-xs text-slate-500"><b>Visual Story:</b> Phân tầng màu sắc phục vụ sống ảo Instagram.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl border-t-4 border-purple-600 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Matcha / Cacao Kem Mochi</h4>
-        <p class="text-lg font-extrabold text-purple-600 mb-2">25.000đ</p>
-        <p class="text-xs text-slate-500"><b>Bắt trend:</b> Thích hợp tệp học sinh nữ cấp 3 Vinschool.</p>
-      </div>
-      <div class="bg-white p-6 rounded-xl border-t-4 border-slate-600 shadow-sm">
-        <h4 class="text-base font-bold text-slate-900 mb-1">Upsell (+5K Topping / +10K Bánh)</h4>
-        <p class="text-lg font-extrabold text-slate-600 mb-2">+5.000đ</p>
-        <p class="text-xs text-slate-500"><b>Kéo AOV:</b> Thêm Kem Trứng Khè hoặc Bánh mì que đóng túi.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 6: PACKAGING TECH COMPARISON -->
-  <div class="slide-page bg-white p-12 flex flex-col">
-    <p class="text-sm font-bold text-emerald-600 tracking-wider mb-2">KỸ THUẬT VẬT LIỆU BAO BÌ</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-7">
-      Giải Phẫu Bao Bì: Ly PP Số 5 vs. Ly PET Số 1
-    </h2>
-    <div class="grid grid-cols-2 gap-9 flex-grow items-center">
-      <div class="bg-emerald-50 p-8 rounded-2xl border-2 border-emerald-200">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl font-bold text-emerald-800">Ly Nhựa PP (Khuyên Dùng)</h3>
-          <span class="bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-bold">CHỌN MÔ HÌNH</span>
-        </div>
-        <ul class="space-y-3 text-sm text-emerald-950">
-          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i><b>Chịu nhiệt:</b> Tới 165°C, dập màng nhiệt kín 100%.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i><b>Độ bền:</b> Dẻo dai, treo móc xe đạp điện không bung tràn.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i><b>Giá thành ly:</b> ~600đ / ly 700ml.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i><b>Màng ép + tem:</b> 68đ màng + 95đ tem = 163đ.</li>
-        </ul>
-        <div class="mt-5 pt-4 border-t border-emerald-200 font-extrabold text-lg text-emerald-800">
-          Tổng bao bì: ~1.052đ / cốc (Tiết kiệm 732đ)
-        </div>
-      </div>
+  <!-- HEADER / NAVIGATION -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <div class="bg-rose-50 p-8 rounded-2xl border-2 border-rose-200">
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="text-xl font-bold text-rose-900">Ly Nhựa PET Nắp Cầu</h3>
-          <span class="bg-rose-500 text-white text-xs px-3 py-1 rounded-full font-bold">LOẠI BỎ</span>
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 to-orange-500 flex items-center justify-center text-white font-heading font-extrabold text-2xl shadow-md group-hover:scale-105 transition-transform">
+          ❄️
         </div>
-        <ul class="space-y-3 text-sm text-rose-950">
-          <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-rose-500"></i><b>Chịu nhiệt kém:</b> Chỉ chịu 65°C, bị sun khi dập nhiệt.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-rose-500"></i><b>Rủi ro vung vãi:</b> Nắp cầu dễ bung khi đi qua gờ giảm tốc.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-rose-500"></i><b>Giá thành ly:</b> ~1.400đ / bộ ly + nắp.</li>
-          <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-rose-500"></i><b>Tem decal dán:</b> 384đ / tem.</li>
-        </ul>
-        <div class="mt-5 pt-4 border-t border-rose-200 font-extrabold text-lg text-rose-900">
-          Tổng bao bì: ~1.784đ / cốc (Vượt ngưỡng >8%)
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-3xl tracking-wider text-slate-900 leading-none">XUE</span>
+          <span class="text-[10px] font-bold text-red-600 tracking-widest uppercase mt-0.5">Mobile Tea Cart</span>
         </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-600">
+        <a href="#about" class="hover:text-red-600 transition-colors">Về XUE</a>
+        <a href="#menu" class="hover:text-red-600 transition-colors">Menu 25K</a>
+        <a href="#tech" class="hover:text-red-600 transition-colors">Bao Bì PP</a>
+        <a href="#finance" class="hover:text-red-600 transition-colors">Bài Toán Tài Chính</a>
+        <a href="#order" class="hover:text-red-600 transition-colors">Đặt QR Lấy Liền</a>
+      </nav>
+
+      <!-- CTA Button & Theme Switcher -->
+      <div class="flex items-center gap-3">
+        <!-- Theme Dropdown Button -->
+        <div class="relative group">
+          <button class="p-2.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors text-xs font-semibold flex items-center gap-2">
+            <i class="fa-solid fa-palette text-red-500"></i>
+            <span class="hidden sm:inline">Đổi Màu</span>
+          </button>
+          <!-- Dropdown -->
+          <div class="absolute right-0 top-full mt-2 w-48 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 hidden group-hover:block z-50">
+            <p class="text-[11px] font-bold text-slate-400 px-3 py-1 uppercase">Bảng màu xe đẩy</p>
+            <button onclick="setTheme('#ef4444', '#f97316')" class="w-full text-left px-3 py-2 text-xs font-semibold rounded-lg hover:bg-slate-50 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-red-500"></span> Đỏ Tuyết XUE (Gốc)
+            </button>
+            <button onclick="setTheme('#f97316', '#eab308')" class="w-full text-left px-3 py-2 text-xs font-semibold rounded-lg hover:bg-slate-50 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-orange-500"></span> Cam Đu Đủ
+            </button>
+            <button onclick="setTheme('#10b981', '#065f46')" class="w-full text-left px-3 py-2 text-xs font-semibold rounded-lg hover:bg-slate-50 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-emerald-500"></span> Matcha Xanh
+            </button>
+            <button onclick="setTheme('#8b5cf6', '#6d28d9')" class="w-full text-left px-3 py-2 text-xs font-semibold rounded-lg hover:bg-slate-50 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-purple-500"></span> Khoai Môn Tím
+            </button>
+          </div>
+        </div>
+
+        <a href="#order" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-red-500/20 text-sm transition-all hover:scale-105 flex items-center gap-2">
+          <i class="fa-solid fa-qrcode"></i>
+          <span>Đặt QR 5s</span>
+        </a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <!-- SLIDE 7: FINANCIAL BREAKDOWN TABLE -->
-  <div class="slide-page bg-slate-50 p-12 flex flex-col">
-    <p class="text-sm font-bold text-sky-600 tracking-wider mb-2">BÀI TOÁN TÀI CHÍNH</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-6">
-      Mô Phỏng Tài Chính & Điểm Hòa Vốn Thực Tế
-    </h2>
-    <div class="flex-grow flex flex-col justify-center">
-      <table class="w-full bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm text-sm">
-        <thead>
-          <tr class="bg-sky-600 text-white text-left">
-            <th class="p-4">Hạng Mục Chi Phí / Doanh Thu</th>
-            <th class="p-4">Đơn Giá Uớc Tính</th>
-            <th class="p-4">Ghi Chú Vận Hành</th>
-          </tr>
-        </thead>
-        <tbody class="text-slate-700 divide-y divide-slate-100">
-          <tr>
-            <td class="p-3.5 font-semibold">Vốn đầu tư ban đầu (Thiết bị)</td>
-            <td class="p-3.5 text-rose-500 font-bold">8.500.000đ – 12.000.000đ</td>
-            <td class="p-3.5">Độ thùng xe điện + Máy Eton D7 + Máy tem XP-350B + NVL đầu</td>
-          </tr>
-          <tr>
-            <td class="p-3.5 font-semibold">Giá trị đơn trung bình (AOV)</td>
-            <td class="p-3.5 text-emerald-600 font-bold">30.000đ / đơn</td>
-            <td class="p-3.5">Cốc gốc 25K + Kỹ thuật Upsell Topping/Bánh kẹp (+5K)</td>
-          </tr>
-          <tr>
-            <td class="p-3.5 font-semibold">Giá vốn 1 đơn (COGS + Bao bì)</td>
-            <td class="p-3.5 font-bold">8.650đ / đơn</td>
-            <td class="p-3.5">Nguyên liệu (6.500đ) + Bao bì PP (1.050đ) + Dự phòng hủy (1.100đ)</td>
-          </tr>
-          <tr>
-            <td class="p-3.5 font-semibold">Lãi gộp trên từng đơn bán ra</td>
-            <td class="p-3.5 text-sky-600 font-bold">21.350đ / đơn (71%)</td>
-            <td class="p-3.5">Biên lợi nhuận gộp lý tưởng của ngành F&B đồ uống</td>
-          </tr>
-          <tr>
-            <td class="p-3.5 font-semibold">Chi phí cố định tháng</td>
-            <td class="p-3.5 font-bold">1.300.000đ / tháng</td>
-            <td class="p-3.5">Thuê điện hiên shophouse (1.000.000đ) + In ấn/Sạc pin (300.000đ)</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="mt-5 bg-sky-100 p-4 rounded-xl flex justify-between items-center text-sky-900">
-        <span class="font-bold">ĐIỂM HÒA VỐN DUY TRÌ HÀNG THÁNG:</span>
-        <span class="text-xl font-extrabold text-sky-700">61 ĐƠN / THÁNG (Chỉ ~3 cốc / ngày)</span>
+  <!-- HERO SECTION -->
+  <section class="pt-32 pb-20 hero-gradient text-white overflow-hidden relative">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700 backdrop-blur-md">
+            <span class="flex h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse"></span>
+            <span class="text-xs font-bold tracking-wider uppercase text-slate-300">Dự Án Khởi Nghiệp Lớp 11 • Vinschool Smart City</span>
+          </div>
+
+          <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
+            TRÀ SỮA XE ĐẨY <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-amber-300">HÃNG XUE 25K</span>
+          </h1>
+
+          <p class="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
+            Mô hình <strong class="text-white">Mixue lưu động bằng xe máy điện 3 bánh</strong> phục vụ trực tiếp cổng trường Vinschool Smart City. Cốc lớn 700ml Full Thạch đồng giá 25.000đ — Cắt bỏ hoàn toàn chi phí mặt bằng máy lạnh!
+          </p>
+
+          <!-- Key Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-800">
+            <div>
+              <p class="font-mono-num text-3xl font-bold text-red-400">25.000đ</p>
+              <p class="text-xs text-slate-400 mt-1">Đồng giá Ly 700ml</p>
+            </div>
+            <div>
+              <p class="font-mono-num text-3xl font-bold text-amber-400">1.052đ</p>
+              <p class="text-xs text-slate-400 mt-1">Bao bì PP chuẩn F&B</p>
+            </div>
+            <div>
+              <p class="font-mono-num text-3xl font-bold text-emerald-400">5 Giây</p>
+              <p class="text-xs text-slate-400 mt-1">Nhận ly qua QR Code</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#order" class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-2xl shadow-lg shadow-red-600/30 text-base transition-all hover:scale-105 flex items-center gap-3">
+              <i class="fa-solid fa-bolt"></i>
+              <span>Đặt Trước Giờ Ra Chơi</span>
+            </a>
+            <a href="#finance" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold px-8 py-4 rounded-2xl text-base transition-all flex items-center gap-3">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Xem Bản Tính Tài Chính</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md bg-gradient-to-b from-slate-800/90 to-slate-900/90 p-6 rounded-3xl border border-slate-700/60 shadow-2xl backdrop-blur-xl">
+            <!-- Badge -->
+            <div class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg badge-glow rotate-3">
+              ⚡ Đã sẵn sàng chạy thử
+            </div>
+
+            <!-- Image Container -->
+            <div class="h-72 rounded-2xl overflow-hidden relative mb-6 border border-slate-700">
+              <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?auto=format&fit=crop&w=800&q=80" alt="XUE Milk Tea" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                <div>
+                  <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">SIGNATURE</span>
+                  <p class="font-heading font-extrabold text-xl text-white mt-1">Trà Sữa Ô Long Mochi</p>
+                </div>
+                <span class="font-mono-num font-bold text-amber-300 text-xl">25.000đ</span>
+              </div>
+            </div>
+
+            <!-- Specifications checklist -->
+            <div class="space-y-3 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/50">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-motorcycle text-red-400"></i> Mô hình phương tiện</span>
+                <span class="font-semibold text-white">Xe máy điện 3 bánh XUE</span>
+              </div>
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/50">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-whiskey-glass text-amber-400"></i> Loại ly bao bì</span>
+                <span class="font-semibold text-white">Ly PP 700ml ép màng nhiệt</span>
+              </div>
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/50">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-emerald-400"></i> Địa điểm mở bán</span>
+                <span class="font-semibold text-white">Cổng THPT Vinschool Smart City</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SLIDE 8: BIG METRIC SHOWCASE -->
-  <div class="slide-page bg-white p-12 flex flex-col">
-    <h2 class="text-3xl font-bold text-slate-900 mb-6">
-      Dự Báo Lợi Nhuận Thực Tế Cho Nhóm Học Sinh
-    </h2>
-    <div class="flex-grow flex flex-col justify-center items-center text-center">
-      <p class="text-[90px] font-extrabold text-emerald-600 leading-none">
-        13.645.000đ
+  <!-- SECTION 1: ABOUT & TEACHER TEMPLATE CORE -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-red-600 font-bold text-xs tracking-widest uppercase">Phân Tích Mô Hình Bài Mẫu</span>
+        <h2 class="font-heading text-4xl font-extrabold text-slate-900 mt-2">
+          Tại Sao Mô Hình Xe Đẩy XUE Thắng Ở Vinschool Smart City?
+        </h2>
+        <p class="text-slate-600 mt-4 leading-relaxed">
+          Được tinh gọn từ mô hình nhượng quyền kiosk trà sữa Đô Đô (~400 triệu), XUE tối ưu hóa chi phí để mang đến ly trà sữa lớn 700ml chất lượng cao với giá chỉ 25.000đ.
+        </p>
+      </div>
+
+      <!-- Grid 4 Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">1. Vùng Ngọt Chi Tiêu</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Học sinh 15–18 tuổi nhạy cảm về giá. Mức giá 20K–25K vừa vặn với tiền tiêu vặt hàng ngày mà không cần xin thêm bố mẹ.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-box-open"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">2. Bao Bì Ép Màng Nhiệt</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Sử dụng ly PP số 5 ép màng nhiệt ở 170°C. Cốc dán kín 100%, treo xe đạp điện phóng qua gờ giảm tốc không lo tràn áo đồng phục.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">3. Bậc Thang Upsell</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Giữ giá gốc 25K nhưng nâng đơn trung bình lên 30K - 34K nhờ câu hỏi gợi ý thêm Topping (+5K) và bánh bông lan phô mai (+10K).
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-slate-900 mb-2">4. Giải Ngân 2 Mốc</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Chi trước 2,2 triệu làm Booth xếp gọn bán thử 3 buổi. Đạt chỉ tiêu &ge;25 cốc/buổi mới giải ngân độ thùng xe điện chính thức.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: MENU & UPSELL MATRIX -->
+  <section id="menu" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-red-600 font-bold text-xs tracking-widest uppercase">Thực Đơn Tinh Gọn</span>
+          <h2 class="font-heading text-4xl font-extrabold text-slate-900 mt-2">
+            Menu 6 Món Đồng Giá 20K - 25K
+          </h2>
+          <p class="text-slate-600 text-sm mt-1">Pha chế siêu tốc dưới 45 giây — Không ùn tắc giờ tan trường</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex gap-2">
+          <span class="px-4 py-2 rounded-xl bg-white text-slate-700 text-xs font-bold border border-slate-200 shadow-sm">
+            🥤 Ly Lớn 700ml Full Thạch
+          </span>
+        </div>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Item 1 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 bg-red-100 text-red-600 text-[11px] font-extrabold rounded-full uppercase">Signature Monster</span>
+              <span class="font-mono-num font-extrabold text-2xl text-red-600">25.000đ</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-slate-900">1. Ô Long Mochi Phô Mai</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+              Trà ô long đậm vị kết hợp mỏ mochi kéo dẻo béo ngậy. Món tủ đánh gục tệp học sinh thích đồ béo thơm.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+            <span>Giá vốn NL: ~6.500đ</span>
+            <span class="font-semibold text-emerald-600">Lãi gộp: 74%</span>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 bg-orange-100 text-orange-600 text-[11px] font-extrabold rounded-full uppercase">Story Viral</span>
+              <span class="font-mono-num font-extrabold text-2xl text-red-600">25.000đ</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-slate-900">2. Sữa Tươi Đường Đen Kem Trứng</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+              Vân đường đen hổ vằn bắt mắt, phủ lớp kem trứng khè thơm lừng. Cực phẩm chụp ảnh đăng Instagram.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+            <span>Giá vốn NL: ~6.800đ</span>
+            <span class="font-semibold text-emerald-600">Lãi gộp: 72%</span>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 bg-emerald-100 text-emerald-600 text-[11px] font-extrabold rounded-full uppercase">Vua Lãi & 0 Hủy</span>
+              <span class="font-mono-num font-extrabold text-2xl text-emerald-600">20.000đ</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-slate-900">3. Trà Đào Cam Sả Nha Đam</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+              Không dùng sữa nên không sợ chua hỏng cuối ca. Cốt trà giải nhiệt cực đã cho ngày nắng nóng.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+            <span>Giá vốn NL: ~3.800đ</span>
+            <span class="font-semibold text-emerald-600">Lãi gộp: 81%</span>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 bg-amber-100 text-amber-600 text-[11px] font-extrabold rounded-full uppercase">Đồng Giá 20K</span>
+              <span class="font-mono-num font-extrabold text-2xl text-amber-600">20.000đ</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-slate-900">4. Trà Xoài Nhiệt Đới Nha Đam</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+              Vị chua ngọt tự nhiên từ xoài chín kết hợp thạch nha đam giòn sần sật.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+            <span>Giá vốn NL: ~4.200đ</span>
+            <span class="font-semibold text-emerald-600">Lãi gộp: 79%</span>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="px-3 py-1 bg-purple-100 text-purple-600 text-[11px] font-extrabold rounded-full uppercase">GenZ Favorite</span>
+              <span class="font-mono-num font-extrabold text-2xl text-red-600">25.000đ</span>
+            </div>
+            <h3 class="font-heading text-2xl font-bold text-slate-900">5. Matcha Latte Kem Mochi</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+              Matcha Nhật Bản chuẩn vị phân tầng Xanh - Trắng cực đẹp mắt. Thích hợp tệp nữ sinh Vinschool.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+            <span>Giá vốn NL: ~6.400đ</span>
+            <span class="font-semibold text-emerald-600">Lãi gộp: 74%</span>
+          </div>
+        </div>
+
+        <!-- Item 6: UPSELL BANNER -->
+        <div class="bg-gradient-to-br from-red-500 to-orange-500 rounded-3xl p-6 text-white shadow-lg flex flex-col justify-between">
+          <div>
+            <span class="px-3 py-1 bg-white/20 text-white text-[11px] font-extrabold rounded-full uppercase tracking-wider">Bậc Thang Upsell</span>
+            <h3 class="font-heading text-2xl font-bold mt-3">Thêm Topping & Bánh Kẹp</h3>
+            <ul class="text-xs space-y-2 mt-3 opacity-90">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-plus text-amber-300"></i> Kem trứng khè / Phô mai viên: <strong>+5.000đ</strong></li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-plus text-amber-300"></i> Bánh bông lan phô mai túi: <strong>+10.000đ</strong></li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-users text-amber-300"></i> Combo Đôi Bạn Thân 2 ly: <strong>45.000đ</strong></li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/20 text-xs font-bold text-amber-200">
+            🚀 Kéo giá trị đơn trung bình (AOV) lên 30.000đ - 34.000đ
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: PACKAGING TECH COMPARISON -->
+  <section id="tech" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-red-600 font-bold text-xs tracking-widest uppercase">Kỹ Thuật Vật Liệu F&B</span>
+        <h2 class="font-heading text-4xl font-extrabold text-slate-900 mt-2">
+          Giải Phẫu Bao Bì: Tiết Kiệm 732đ / Ly
+        </h2>
+        <p class="text-slate-600 mt-3 text-sm">
+          So sánh thực tế giữa Ly PP Số 5 ép màng nhiệt và Ly PET Số 1 nắp cầu
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Option A: PP Ly (Winner) -->
+        <div class="bg-emerald-50/50 rounded-3xl p-8 border-2 border-emerald-500/40 relative">
+          <span class="absolute top-6 right-6 px-4 py-1.5 bg-emerald-600 text-white font-bold text-xs rounded-full shadow-md">
+            RECOMMENDED FOR XE ĐẨY
+          </span>
+
+          <h3 class="font-heading text-2xl font-bold text-emerald-950 mb-2">Ly Nhựa PP Số 5 (Đáy Bầu 700ml)</h3>
+          <p class="text-emerald-800 text-sm mb-6">Kết hợp máy dập màng nhiệt Eton D7 (170°C)</p>
+
+          <div class="space-y-4 text-sm text-emerald-900 mb-8">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5"></i>
+              <div>
+                <strong>Chịu nhiệt 165°C:</strong> Khi dập màng ép nhiệt, miệng ly dính chặt kín 100%, tuyệt đối không bung nắp khi học sinh treo xe đạp điện.
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5"></i>
+              <div>
+                <strong>Giá vỏ ly PP sỉ:</strong> Chỉ 600đ/cốc (Thùng 1.000 cái từ xưởng KinhDoanhTràSữa).
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-0.5"></i>
+              <div>
+                <strong>Màng ép + Ống hút + Túi T + Tem nhiệt:</strong> 452đ / bộ.
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-100/80 p-5 rounded-2xl flex justify-between items-center text-emerald-950 font-extrabold">
+            <span>TỔNG CHI PHÍ BAO BÌ PP:</span>
+            <span class="font-mono-num text-2xl text-emerald-700">1.052đ / cốc</span>
+          </div>
+        </div>
+
+        <!-- Option B: PET Ly (Loser) -->
+        <div class="bg-rose-50/50 rounded-3xl p-8 border-2 border-rose-200 relative opacity-80">
+          <span class="absolute top-6 right-6 px-4 py-1.5 bg-slate-400 text-white font-bold text-xs rounded-full">
+            LOẠI BỎ (ĐẮT & RỦI RO)
+          </span>
+
+          <h3 class="font-heading text-2xl font-bold text-rose-950 mb-2">Ly Nhựa PET Số 1 (Nắp Cầu)</h3>
+          <p class="text-rose-800 text-sm mb-6">Trong suốt nhưng giòn, dùng nắp rời</p>
+
+          <div class="space-y-4 text-sm text-rose-900 mb-8">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 text-lg mt-0.5"></i>
+              <div>
+                <strong>Chỉ chịu 65°C:</strong> Đưa vào máy ép 170°C bị sun chảy méo miệng ly ngay lập tức.
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 text-lg mt-0.5"></i>
+              <div>
+                <strong>Giá vỏ ly PET kèm nắp:</strong> 1.400đ/bộ (Vinbar.vn). Đắt hơn ly PP 800đ!
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 text-lg mt-0.5"></i>
+              <div>
+                <strong>Rủi ro vung vãi:</strong> Nắp cầu rời rất dễ bung tràn khi treo xe chạy qua gờ giảm tốc.
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-rose-100/80 p-5 rounded-2xl flex justify-between items-center text-rose-950 font-extrabold">
+            <span>TỔNG CHI PHÍ BAO BÌ PET:</span>
+            <span class="font-mono-num text-2xl text-rose-700">1.784đ / cốc</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: INTERACTIVE FINANCIAL CALCULATOR -->
+  <section id="finance" class="py-20 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-amber-400 font-bold text-xs tracking-widest uppercase">Mô Phỏng Cho Nhà Đầu Tư / Phụ Huynh</span>
+        <h2 class="font-heading text-4xl font-extrabold text-white mt-2">
+          Máy Tính Điểm Hòa Vốn Thực Chiến
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Đã tính toán trừ rủi ro 15% hủy hàng (do mưa/ế) và số ngày bán thực tế trong tháng
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Controls Column -->
+        <div class="lg:col-span-6 space-y-6 bg-slate-800/80 p-8 rounded-3xl border border-slate-700">
+          
+          <!-- Slider 1 -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-slate-300">Số cốc bán / buổi chiều:</span>
+              <span id="cups-val" class="text-amber-400 font-mono-num font-bold text-lg">35 cốc/buổi</span>
+            </div>
+            <input type="range" id="cups-slider" min="10" max="100" value="35" step="5" class="w-full accent-red-500 cursor-pointer">
+          </div>
+
+          <!-- Slider 2 -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-slate-300">Giá trị đơn trung bình (AOV):</span>
+              <span id="aov-val" class="text-amber-400 font-mono-num font-bold text-lg">30.000đ</span>
+            </div>
+            <input type="range" id="aov-slider" min="20000" max="45000" value="30000" step="1000" class="w-full accent-red-500 cursor-pointer">
+          </div>
+
+          <!-- Slider 3 -->
+          <div>
+            <div class="flex justify-between text-sm font-semibold mb-2">
+              <span class="text-slate-300">Số ngày bán thực tế / tháng:</span>
+              <span id="days-val" class="text-amber-400 font-mono-num font-bold text-lg">20 ngày/tháng</span>
+            </div>
+            <input type="range" id="days-slider" min="10" max="26" value="20" step="1" class="w-full accent-red-500 cursor-pointer">
+          </div>
+
+          <div class="pt-4 border-t border-slate-700 text-xs text-slate-400 space-y-1">
+            <p>• Chi phí cố định: 1.300.000đ/tháng (Điểm điện 1Tr + Sạc ắc quy 300K)</p>
+            <p>• Giá vốn 1 đơn (COGS): 8.650đ (NL 6.5K + Bao bì 1.05K + 15% Hủy hàng)</p>
+          </div>
+
+        </div>
+
+        <!-- Output Metric Box -->
+        <div class="lg:col-span-6 bg-gradient-to-br from-red-600 via-orange-600 to-amber-600 p-10 rounded-3xl text-center shadow-2xl space-y-6">
+          <p class="text-xs font-extrabold uppercase tracking-widest text-white/80">LÃI RÒNG BỎ TÚI HÀNG THÁNG</p>
+          
+          <p id="profit-output" class="font-mono-num text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-none">
+            13.645.000đ
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/20 text-left">
+            <div class="bg-black/20 p-4 rounded-2xl backdrop-blur-sm">
+              <p class="text-[11px] text-white/70">Tổng Doanh Thu Tháng</p>
+              <p id="revenue-output" class="font-mono-num font-bold text-xl text-white mt-1">21.000.000đ</p>
+            </div>
+            <div class="bg-black/20 p-4 rounded-2xl backdrop-blur-sm">
+              <p class="text-[11px] text-white/70">Hòa Vốn Duy Trì Tháng</p>
+              <p id="breakeven-output" class="font-mono-num font-bold text-xl text-amber-200 mt-1">61 cốc (~3 cốc/ngày)</p>
+            </div>
+          </div>
+
+          <p class="text-xs text-white/90 italic">
+            🛡️ Thời gian hoàn vốn đầu tư xe (~10 triệu): <strong>~0.8 tháng (15 buổi bán)</strong>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: QR ORDER DEMO (SKIP-THE-LINE) -->
+  <section id="order" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-red-600 font-bold text-xs tracking-widest uppercase">Trải Nghiệm Số Hóa Điểm Bán</span>
+        <h2 class="font-heading text-4xl font-extrabold text-slate-900 mt-2">
+          Đặt Trước Giờ Ra Chơi — Lấy Đồ Trong 5 Giây
+        </h2>
+        <p class="text-slate-600 text-sm mt-2">
+          Quét QR ở 5 phút cuối tiết học, tắp xe lấy ly dập sẵn tại cổng trường mà không cần xếp hàng!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Interactive Order Form -->
+        <div class="lg:col-span-7 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+          <h3 class="font-heading text-2xl font-bold text-slate-900">Phiếu Đặt Hàng Thử Nghiệm</h3>
+          
+          <!-- Step 1: Select Drink -->
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-3">Bước 1: Chọn món đồng giá 25K</label>
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="selectDrink('Ô Long Mochi Phô Mai', 25000)" class="drink-btn border-2 border-red-500 bg-red-50 p-3 rounded-2xl text-left font-semibold text-xs text-slate-900 flex justify-between items-center">
+                <span>🧋 Ô Long Mochi</span>
+                <span class="text-red-600 font-bold">25K</span>
+              </button>
+              <button onclick="selectDrink('Sữa Tươi Đường Đen', 25000)" class="drink-btn border-2 border-slate-200 p-3 rounded-2xl text-left font-semibold text-xs text-slate-900 flex justify-between items-center hover:border-slate-300">
+                <span>🐯 Đường Đen Kem Trứng</span>
+                <span class="text-red-600 font-bold">25K</span>
+              </button>
+              <button onclick="selectDrink('Trà Đào Cam Sả', 20000)" class="drink-btn border-2 border-slate-200 p-3 rounded-2xl text-left font-semibold text-xs text-slate-900 flex justify-between items-center hover:border-slate-300">
+                <span>🍑 Trà Đào Cam Sả</span>
+                <span class="text-emerald-600 font-bold">20K</span>
+              </button>
+              <button onclick="selectDrink('Matcha Latte Mochi', 25000)" class="drink-btn border-2 border-slate-200 p-3 rounded-2xl text-left font-semibold text-xs text-slate-900 flex justify-between items-center hover:border-slate-300">
+                <span>🍵 Matcha Latte</span>
+                <span class="text-red-600 font-bold">25K</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2: Topping -->
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-3">Bước 2: Chọn Topping Upsell (Tùy chọn)</label>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" id="topping-egg" onchange="updateTicket()" class="w-4 h-4 accent-red-500">
+                <span>Kem trứng khè (+5.000đ)</span>
+              </label>
+              <label class="flex items-center gap-2 text-xs font-semibold text-slate-700 cursor-pointer">
+                <input type="checkbox" id="topping-cake" onchange="updateTicket()" class="w-4 h-4 accent-red-500">
+                <span>Bánh phô mai (+10.000đ)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Info & Pickup Time -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Tên / Biệt danh</label>
+              <input type="text" id="cust-name" value="Minh Anh 11A2" oninput="updateTicket()" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs font-semibold">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Khung giờ ghé xe</label>
+              <select id="pickup-time" onchange="updateTicket()" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-xs font-semibold">
+                <option>17h05 • Tan học ca chiều</option>
+                <option>17h20 • Trước ca học thêm</option>
+                <option>19h15 • Giải lao giữa giờ</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Order Ticket Preview -->
+        <div class="lg:col-span-5">
+          <div class="bg-slate-900 text-white p-8 rounded-3xl shadow-2xl border border-slate-800 space-y-6 relative overflow-hidden">
+            
+            <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+              <div>
+                <span class="text-[10px] font-bold text-red-400 tracking-widest uppercase">PHIẾU NHẬN ĐỒ ƯU TIÊN</span>
+                <p class="font-heading text-xl font-bold">XUE MOBILE CART</p>
+              </div>
+              <span class="font-mono-num font-extrabold text-2xl text-amber-400">#XUE-08</span>
+            </div>
+
+            <div class="space-y-3 text-xs text-slate-300">
+              <div class="flex justify-between">
+                <span class="text-slate-400">Khách hàng:</span>
+                <span id="ticket-name" class="font-bold text-white">Minh Anh 11A2</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Món chọn:</span>
+                <span id="ticket-drink" class="font-bold text-white">Ô Long Mochi Phô Mai</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Topping kèm:</span>
+                <span id="ticket-topping" class="font-bold text-amber-300">Không có</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Điểm hẹn:</span>
+                <span id="ticket-time" class="font-semibold text-white">17h05 • Tan học ca chiều</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-slate-800">
+                <span class="text-slate-400">Quy chuẩn bao bì:</span>
+                <span class="font-semibold text-emerald-400">Ly PP 700ml Ép Màng Nhiệt</span>
+              </div>
+            </div>
+
+            <div class="bg-slate-800 p-4 rounded-2xl flex justify-between items-center">
+              <span class="text-xs text-slate-400">Tổng thanh toán:</span>
+              <span id="ticket-total" class="font-mono-num font-extrabold text-2xl text-red-400">25.000đ</span>
+            </div>
+
+            <div class="text-center pt-2">
+              <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-bold border border-emerald-500/20">
+                ✨ Tem in nhiệt đã sẵn sàng: "Chúc Minh Anh 10 điểm!"
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-red-600 text-white font-heading font-extrabold flex items-center justify-center text-xl">
+          ❄️
+        </div>
+        <div>
+          <p class="font-heading font-extrabold text-xl text-white leading-none">XUE MOBILE TEA CART</p>
+          <p class="text-xs text-slate-500 mt-1">Dự án khởi nghiệp học sinh Khối 11 • THPT Vinschool Smart City</p>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-500">
+        © 2026 XUE Brand. Biên soạn theo mẫu chuẩn bài học 5 buổi Gemini Canvas & GitHub Pages.
       </p>
-      <p class="text-xl text-slate-600 mt-5 font-semibold">
-        Lãi Ròng Thu Về / Tháng (Bán 35 Cốc/Ngày x 20 Ngày/Tháng)
-      </p>
-      <div class="flex gap-12 mt-10">
-        <div class="text-center">
-          <p class="text-2xl font-bold text-slate-900">21.000.000đ</p>
-          <p class="text-sm text-slate-500 mt-1">Tổng Doanh Thu</p>
-        </div>
-        <div class="text-center border-l border-slate-300 pl-12">
-          <p class="text-2xl font-bold text-rose-500">6.055.000đ</p>
-          <p class="text-sm text-slate-500 mt-1">Tổng Chi Phí NVL & Bao Bì</p>
-        </div>
-        <div class="text-center border-l border-slate-300 pl-12">
-          <p class="text-2xl font-bold text-sky-600">~1 Tháng</p>
-          <p class="text-sm text-slate-500 mt-1">Thời Gian Hoàn Vốn Xe</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- SLIDE 9: QR ORDER SYSTEM -->
-  <div class="slide-page bg-slate-50 p-12 flex flex-col">
-    <p class="text-sm font-bold text-purple-600 tracking-wider mb-2">CHUYỂN ĐỔI SỐ ĐIỂM BÁN</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-7">
-      Trải Nghiệm "Skip-The-Line" Quét Mã Đặt Trực Tuyến
-    </h2>
-    <div class="grid grid-cols-2 gap-9 flex-grow items-center">
-      <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-        <h3 class="text-lg font-bold text-slate-900 mb-4">Quy Trình 3 Bước Đặt Hàng</h3>
-        <div>
-          <h5 class="text-sm font-bold text-purple-600">Bước 1: Quét Mã QR Tại Lớp</h5>
-          <p class="text-xs text-slate-500 mt-1">Mã QR dán trên thùng xe hoặc gửi trong Zalo khối học sinh trước giờ tan học 5 phút.</p>
-        </div>
-        <div>
-          <h5 class="text-sm font-bold text-purple-600">Bước 2: Chọn Món & Khung Giờ</h5>
-          <p class="text-xs text-slate-500 mt-1">Chọn món đồng giá 25K + Topping tùy chọn. Chọn điểm hẹn lấy đồ (VD: 17h05 hiên photo).</p>
-        </div>
-        <div>
-          <h5 class="text-sm font-bold text-purple-600">Bước 3: Tắp Xe Lấy Ly 5 Giây</h5>
-          <p class="text-xs text-slate-500 mt-1">Học sinh đi xe đạp điện tắp vào đọc mã đơn (#VINS-08), nhận ly dập sẵn và đi ngay.</p>
-        </div>
-      </div>
-
-      <div class="bg-indigo-950 p-8 rounded-2xl text-white shadow-xl">
-        <div class="flex justify-between items-center pb-3 border-b border-indigo-800 mb-4">
-          <span class="text-xs font-bold text-sky-400">PHIẾU NHẬN ĐỒ ƯU TIÊN</span>
-          <span class="text-xs font-bold text-amber-400">#VINS-08</span>
-        </div>
-        <p class="text-sm mb-2"><b>Khách hàng:</b> Minh Anh - Lớp 11A2</p>
-        <p class="text-sm mb-2"><b>Món chọn:</b> Ô Long Kem Cheese (25K)</p>
-        <p class="text-sm mb-2"><b>Topping kèm:</b> Kem Trứng Khè (+5K)</p>
-        <p class="text-sm mb-4"><b>Hẹn lấy:</b> 17h05 • Hiên Tiệm Photo</p>
-        <div class="bg-indigo-900 p-4 rounded-xl text-center">
-          <p class="text-xs text-indigo-200 mb-1">Tổng thanh toán</p>
-          <p class="text-2xl font-extrabold text-sky-400">30.000đ</p>
-        </div>
-      </div>
     </div>
-  </div>
+  </footer>
 
-  <!-- SLIDE 10: RISK MANAGEMENT -->
-  <div class="slide-page bg-white p-12 flex flex-col">
-    <p class="text-sm font-bold text-rose-500 tracking-wider mb-2">QUẢN TRỊ RỦI RO</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-7">
-      Phương Án Xử Lý 3 Thách Thức Vận Hành
-    </h2>
-    <div class="grid grid-cols-3 gap-6 flex-grow items-center">
-      <div class="bg-slate-50 p-7 rounded-2xl border border-slate-100">
-        <div class="text-rose-500 text-2xl mb-3"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
-        <h3 class="text-base font-bold text-slate-900 mb-2">Thời Tiết Mưa / Mới Bán</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">Áp dụng nguyên tắc giải ngân 2 mốc. Chi trước 2.2 triệu làm Booth thử nghiệm 3 chiều, đạt chỉ tiêu mới đóng thùng xe.</p>
-      </div>
-      <div class="bg-slate-50 p-7 rounded-2xl border border-slate-100">
-        <div class="text-sky-600 text-2xl mb-3"><i class="fa-solid fa-building-shield"></i></div>
-        <h3 class="text-base font-bold text-slate-900 mb-2">Ban Quản Lý Đô Thị</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">Hợp tác trả phí với cửa hàng giặt là / tiệm photo tầng 1 shophouse để đỗ xe hợp pháp và cắm nhờ điện 220V.</p>
-      </div>
-      <div class="bg-slate-50 p-7 rounded-2xl border border-slate-100">
-        <div class="text-emerald-600 text-2xl mb-3"><i class="fa-solid fa-triangle-exclamation"></i></div>
-        <h3 class="text-base font-bold text-slate-900 mb-2">Hủy Hàng Cốt Trà Ế</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">Nấu trà đậm đặc đóng bình ủ 8 tiếng. Cuối ca ủ đá lạnh bán dòng Trà chanh / Trà trái cây giã tay để zero chi phí hủy.</p>
-      </div>
-    </div>
-  </div>
+  <!-- JAVASCRIPT FOR CALCULATOR & INTERACTION -->
+  <script>
+    // State variables
+    let selectedDrinkName = 'Ô Long Mochi Phô Mai';
+    let selectedDrinkPrice = 25000;
 
-  <!-- SLIDE 11: 5-SESSION ROADMAP -->
-  <div class="slide-page bg-slate-50 p-12 flex flex-col">
-    <p class="text-sm font-bold text-sky-600 tracking-wider mb-2">LỘ TRÌNH DỰ ÁN 5 BUỔI HỌC</p>
-    <h2 class="text-3xl font-bold text-slate-900 mb-7">
-      Tiến Độ Thực Hiện Dự Án Khởi Nghiệp Lớp 11
-    </h2>
-    <div class="space-y-3.5 flex-grow flex flex-col justify-center">
-      <div class="flex items-center bg-white p-4 rounded-xl border-l-4 border-rose-500 shadow-sm">
-        <span class="font-extrabold text-sm text-rose-500 w-24">BUỔI 01</span>
-        <span class="text-sm font-bold text-slate-800">Khảo sát thị trường Vinschool Smart City & Chân dung khách hàng</span>
-      </div>
-      <div class="flex items-center bg-white p-4 rounded-xl border-l-4 border-sky-600 shadow-sm">
-        <span class="font-extrabold text-sm text-sky-600 w-24">BUỔI 02</span>
-        <span class="text-sm font-bold text-slate-800">Thiết kế Logo, bảng màu Google Fonts & Quy chuẩn tem nhãn ly PP</span>
-      </div>
-      <div class="flex items-center bg-white p-4 rounded-xl border-l-4 border-emerald-600 shadow-sm">
-        <span class="font-extrabold text-sm text-emerald-600 w-24">BUỔI 03</span>
-        <span class="text-sm font-bold text-slate-800">Xây dựng Menu 6 món, kỹ thuật bán kèm Upsell & Báo giá vật tư sỉ</span>
-      </div>
-      <div class="flex items-center bg-white p-4 rounded-xl border-l-4 border-amber-600 shadow-sm">
-        <span class="font-extrabold text-sm text-amber-600 w-24">BUỔI 04</span>
-        <span class="text-sm font-bold text-slate-800">Lập mô hình tài chính hòa vốn, thiết kế xe đẩy động cơ & xin nguồn điện</span>
-      </div>
-      <div class="flex items-center bg-white p-4 rounded-xl border-l-4 border-purple-600 shadow-sm">
-        <span class="font-extrabold text-sm text-purple-600 w-24">BUỔI 05</span>
-        <span class="text-sm font-bold text-slate-800">Dựng Web QR Đặt hàng trước trên GitHub Pages & Báo cáo thuyết trình</span>
-      </div>
-    </div>
-  </div>
+    // Theme Switcher Function
+    function setTheme(primary, accent) {
+      document.documentElement.style.setProperty('--brand-primary', primary);
+      document.documentElement.style.setProperty('--brand-accent', accent);
+    }
 
-  <!-- SLIDE 12: CLOSING & Q&A -->
-  <div class="slide-page bg-indigo-950 p-16 flex flex-col justify-center items-center text-center text-white">
-    <h1 class="font-['Space_Grotesk'] text-5xl font-bold text-white mb-4">
-      Cảm Ơn Thầy Cô & Các Bạn!
-    </h1>
-    <p class="text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
-      Dự án "Xe Đẩy Trà Sữa Động Cơ" - Kết hợp tư duy thiết kế thương hiệu và bài toán tài chính F&B thực chiến tại Vinschool Smart City.
-    </p>
-    <div class="bg-indigo-900 px-8 py-4 rounded-full border border-indigo-700">
-      <p class="text-base text-slate-100 font-semibold">Q&A: Sẵn sàng nhận góp ý phản biện từ Hội đồng thẩm định</p>
-    </div>
-  </div>
+    // Financial Calculator Logic
+    const cupsSlider = document.getElementById('cups-slider');
+    const aovSlider = document.getElementById('aov-slider');
+    const daysSlider = document.getElementById('days-slider');
+
+    const cupsVal = document.getElementById('cups-val');
+    const aovVal = document.getElementById('aov-val');
+    const daysVal = document.getElementById('days-val');
+
+    const profitOutput = document.getElementById('profit-output');
+    const revenueOutput = document.getElementById('revenue-output');
+    const breakevenOutput = document.getElementById('breakeven-output');
+
+    function calculateFinance() {
+      const cupsPerDay = parseInt(cupsSlider.value);
+      const aov = parseInt(aovSlider.value);
+      const activeDays = parseInt(daysSlider.value);
+
+      cupsVal.innerText = `${cupsPerDay} cốc/buổi`;
+      aovVal.innerText = `${aov.toLocaleString('vi-VN')}đ`;
+      daysVal.innerText = `${activeDays} ngày/tháng`;
+
+      // Financial formulas
+      const totalRevenue = cupsPerDay * aov * activeDays;
+      const cogsPerUnit = 8650; // NL 6.5K + Bao bi 1.05K + 15% Hủy
+      const grossProfitPerUnit = aov - cogsPerUnit;
+      const fixedCostMonthly = 1300000; // 1Tr thuê điện + 300K sạc
+
+      const netProfitMonthly = (cupsPerDay * grossProfitPerUnit * activeDays) - fixedCostMonthly;
+      const breakEvenUnitsMonthly = Math.ceil(fixedCostMonthly / grossProfitPerUnit);
+
+      revenueOutput.innerText = `${totalRevenue.toLocaleString('vi-VN')}đ`;
+      profitOutput.innerText = `${Math.max(0, netProfitMonthly).toLocaleString('vi-VN')}đ`;
+      breakevenOutput.innerText = `${breakEvenUnitsMonthly} cốc (~${Math.ceil(breakEvenUnitsMonthly / activeDays)} cốc/ngày)`;
+    }
+
+    cupsSlider.addEventListener('input', calculateFinance);
+    aovSlider.addEventListener('input', calculateFinance);
+    daysSlider.addEventListener('input', calculateFinance);
+
+    // Interactive Order Form Logic
+    function selectDrink(name, price) {
+      selectedDrinkName = name;
+      selectedDrinkPrice = price;
+
+      document.querySelectorAll('.drink-btn').forEach(btn => {
+        btn.classList.remove('border-red-500', 'bg-red-50');
+        btn.classList.add('border-slate-200');
+      });
+
+      event.currentTarget.classList.remove('border-slate-200');
+      event.currentTarget.classList.add('border-red-500', 'bg-red-50');
+
+      updateTicket();
+    }
+
+    function updateTicket() {
+      const name = document.getElementById('cust-name').value || 'Minh Anh';
+      const pickup = document.getElementById('pickup-time').value;
+      const addEgg = document.getElementById('topping-egg').checked;
+      const addCake = document.getElementById('topping-cake').checked;
+
+      let toppingText = [];
+      let extraPrice = 0;
+
+      if (addEgg) {
+        toppingText.push('Kem trứng (+5K)');
+        extraPrice += 5000;
+      }
+      if (addCake) {
+        toppingText.push('Bánh phô mai (+10K)');
+        extraPrice += 10000;
+      }
+
+      const total = selectedDrinkPrice + extraPrice;
+
+      document.getElementById('ticket-name').innerText = name;
+      document.getElementById('ticket-drink').innerText = selectedDrinkName;
+      document.getElementById('ticket-topping').innerText = toppingText.length > 0 ? toppingText.join(', ') : 'Không có';
+      document.getElementById('ticket-time').innerText = pickup;
+      document.getElementById('ticket-total').innerText = `${total.toLocaleString('vi-VN')}đ`;
+    }
+
+    // Initialize
+    calculateFinance();
+    updateTicket();
+  </script>
 
 </body>
 </html>
